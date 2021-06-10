@@ -1,0 +1,66 @@
+# 6/11 프로그래머스 코딩테스트
+
+K번째 수
+IntelliJ 테스트
+```
+import java.util.*;
+public class Main {
+    public static void main(String[] args){
+        int[] array = {1,5,2,6,3,7,4};
+        int[][] commands = {{2,5,3},{4,4,1},{1,7,3}};
+        // 정답 배열
+        int[] answer = new int[3];
+        // 3번 반복
+        for(int i=0;i<3;i++) {
+            // commands의 i,j,k값
+            int a = commands[i][0] - 1;
+            int b = commands[i][1] - 1;
+            int c = commands[i][2] - 1;
+            //자를 배열의 크기
+            int d = b-a+1;
+            int[] cut = new int[d];
+            // cut 배열에 array[i]~array[j]까지의 값들을 하나씩 저장
+            for (int j = a; j <= b; j++) {
+                cut[j-a] = array[j];
+            }
+            // cut배열 정렬
+            Arrays.sort(cut);
+            // 정렬한 cut배열의 k번째 숫자를 answer 배열에 저장
+            answer[i] = cut[c];
+        }
+        //answer배열 출력
+        for(int k=0;k<3;k++) {
+            System.out.print(answer[k]+" ");
+        }
+    }
+}
+```
+프로그래머스 제출
+```
+import java.util.*;
+class Solution {
+    public int[] solution(int[] array, int[][] commands) {
+        // answer배열은 command의 크기
+        int[] answer = new int[commands.length];
+        // 넘어온 command의 크기만큼 반복
+        for(int i=0;i<commands.length;i++) {
+	// commands의 i,j,k값(배열)
+            int a = commands[i][0] - 1;
+            int b = commands[i][1] - 1;
+            int c = commands[i][2] - 1;
+            // i~j까지 자를 갯수
+            int d = b-a+1;
+            int[] cut = new int[d];
+            // i~j까지 cut배열에 추가
+            for (int j = a; j <= b; j++) {
+                cut[j-a] = array[j];
+            }
+            // cut배열 정렬
+            Arrays.sort(cut);
+            // 정렬한 배열의 k번째 값을 answer배열에 저장
+            answer[i] = cut[c];
+        }
+        return answer;
+    }
+}
+```
