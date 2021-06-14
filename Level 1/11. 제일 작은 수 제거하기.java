@@ -1,25 +1,3 @@
-# 6/14 프로그래머스 코딩테스트
-
-짝수와 홀수
-```
-class Solution {
-    public String solution(int num) {
-        //num값에 따라 바뀔 answer문자열
-        String answer;
-        // num을 2로 나눈 나머지가 0이면 짝수이므로 Even
-        if(num%2 == 0){
-            answer = "Even";
-        }
-        // 0이 아니라면 홀수이므로 Odd
-        else{
-            answer = "Odd";
-        }
-        return answer;
-    }
-}
-```
-제일 작은 수 제거하기
-```
 class Solution {
     public int[] solution(int[] arr) {
         int[] answer;
@@ -38,7 +16,7 @@ class Solution {
         }
         // 하나씩 비교할 정수 j 선언
         int j = 0;
-        // arr[0]와 min을 비교하여 min값과 같으면 저장하지 않고 
+        // arr[0]와 min을 비교하여 min값과 같으면 저장하지 않고
         // j++과 i--를 한 뒤 넘어가고, 그 외에는 저장하고 j++
         for (int i = 0; i < answer.length; i++) {
             if (arr[j] == min) {
@@ -52,4 +30,3 @@ class Solution {
         return answer;
     }
 }
-```
