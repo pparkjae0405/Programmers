@@ -1,0 +1,51 @@
+# 6/19 프로그래머스 코딩테스트
+
+약수의 합
+```
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        //1~본인수까지 반복하며 나눴을 때 나머지가 0 이면 약수이므로 answer에 더하여 저장
+        for(int i=1;i<=n;i++){
+            if(n%i == 0)
+                answer += i;
+        }
+        return answer;
+    }
+}
+```
+시저 암호
+```
+class Solution {
+    public String solution(String s, int n) {
+        String answer = "";
+        // 입력받은 문자열 s의 길이만큼 반복
+        for(int i=0;i<s.length();i++){
+            //소문자일 경우
+            if(s.charAt(i) > 96 && s.charAt(i) < 123){
+                // n을 추가하였을 때 z의 범위를 넘어간다면 맨처음으로 돌아가도록
+                if(s.charAt(i)+n > 122)
+                    answer += (char)(s.charAt(i)-26+n);
+                // 그 외에는 정상적으로 더함
+                else
+                    answer += (char)(s.charAt(i)+n);
+            }
+            //대문자일 경우
+            if(s.charAt(i) > 64 && s.charAt(i) < 91){
+                // n을 추가하였을 때 Z의 범위를 넘어간다면 맨처음으로 돌아가도록
+                if(s.charAt(i)+n > 90)
+                    answer += (char)(s.charAt(i)-26+n);
+                    // 그 외에는 정상적으로 더함
+                else
+                    answer += (char)(s.charAt(i)+n);
+            }
+            //공백일 경우
+            if(s.charAt(i) == ' '){
+                //answer에 공백을 더해 저장
+                answer += ' ';
+            }
+        }
+        return answer;
+    }
+}
+```
